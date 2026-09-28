@@ -1,1 +1,102 @@
-Initializing
+# Repolex Knowledge Graph of asimov-modules/asimov-linkup-module
+
+RDF knowledge graph data for [asimov-modules/asimov-linkup-module](https://github.com/asimov-modules/asimov-linkup-module), parsed by [repolex](https://repolex.ai).
+
+> **Note**: This data is experimental and subject to change without notice.
+
+## How to use this data
+
+The easiest way to get started is to install the [rlex](https://github.com/repolex-ai/rlex) query tool:
+
+```bash
+cargo install --git https://github.com/repolex-ai/rlex
+```
+
+Verify the install:
+
+```bash
+rlex --help
+```
+
+**rlex is designed to be used primarily by LLMs in a terminal.** Start up your favorite AI assistant and ask it to use rlex. It handles the SPARQL — you just ask questions in plain English.
+
+To load this repo's data:
+
+```bash
+rlex download asimov-modules/asimov-linkup-module
+```
+
+Consult `rlex --help` for other options, including SPARQL queries, HTTP server, and interactive visualization.
+
+## Data structure
+
+All data is stored as gzip-compressed [N-Quads](https://www.w3.org/TR/n-quads/) (`.nq.gz`), a standard RDF format that can be loaded into any triplestore or graph database.
+
+```
+.
+├── aggregate
+│   ├── ast
+│   │   └── a65f83bf57474ca3819463f796ebf8c6041ea8b0
+│   │       └── chunk-001.nq.gz
+│   ├── lsp
+│   │   └── a65f83bf57474ca3819463f796ebf8c6041ea8b0.nq.gz
+│   └── repolex
+│       └── a65f83bf57474ca3819463f796ebf8c6041ea8b0
+│           └── chunk-001.nq.gz
+├── blob
+│   ├── 0c2ca06ba5dd096429b947848c047c8944427873.nq.gz
+│   ├── 1509495311c75327048a7cc7f4ddf127905a85d8.nq.gz
+│   ├── 2defcd470de6d9a633bf342ff588f6397ccd2129.nq.gz
+│   ├── 386c58b01dcce4d11b26a0c09595b340320a1bbc.nq.gz
+│   ├── 59e8763f92f0069d70e4cdf0c519a8ce4f193022.nq.gz
+│   ├── 5f5cf896c81688e4360b37f1bcda92f7bc6f7423.nq.gz
+│   ├── 71b94c3a33a982ea857d4890c27c675bfc2678d1.nq.gz
+│   ├── 75e3b65f99b29f48ab230e3eab3de8d0b7a9229f.nq.gz
+│   ├── 775b37f2025b0b0c44365b5ed0671d9f24131855.nq.gz
+│   ├── 7c0cbcfc3dc19e6c88c13ad683b1a54c63a7273f.nq.gz
+│   ├── 876ce643aacab0201f5d0a05c224bec2033ed1a6.nq.gz
+│   ├── 88fa1375f74548dba852d54438c56c72e80e891e.nq.gz
+│   ├── 8acdd82b765e8e0b8cd8787f7f18c7fe2ec52493.nq.gz
+│   ├── a3e91827c64a157aa258c9b96facd4482f09b173.nq.gz
+│   ├── af9908b08f4b33c32a0080af73f53bc0fa0cdce4.nq.gz
+│   ├── b0a144a7d6d37833a0ead3c5a41f388d79fa7d2f.nq.gz
+│   ├── cf42f6893594e2f8be2b722de51123d65e4d61c4.nq.gz
+│   ├── e3e57a8ce4ccbf74759a6df8fa4a3980ff1c9209.nq.gz
+│   ├── e69de29bb2d1d6434b8b29ae775ad8c2e48c5391.nq.gz
+│   ├── efb98088164f5786b17e83ed384971fc3c74f93c.nq.gz
+│   └── f1010477934d9e200bda33d146b6366d5d4d364b.nq.gz
+├── branch
+│   └── branch.nq.gz
+├── commit
+│   └── commit.nq.gz
+├── dep
+│   └── a65f83bf57474ca3819463f796ebf8c6041ea8b0.nq.gz
+├── filetree
+│   └── a65f83bf57474ca3819463f796ebf8c6041ea8b0.nq.gz
+├── pr
+│   └── pr.nq.gz
+└── tag
+    └── tag.nq.gz
+
+14 directories, 30 files
+```
+
+| Directory | What it contains |
+|-----------|-----------------|
+| `blob/` | Per-file AST graphs, content-addressed by git blob SHA. Each file in the source repo gets its own graph. |
+| `aggregate/ast/` | Combined AST graph per parsed commit. Merges all blob graphs for a snapshot of the entire codebase at that point. |
+| `aggregate/lsp/` | Language Server Protocol enrichment: resolved symbols, definitions, references, and type information. |
+| `aggregate/dataflow/` | Interprocedural data flow edges between functions and modules. |
+| `aggregate/repolex/` | Combined graph (AST + LSP + dataflow) per commit. |
+| `commit/` | Git commit metadata (author, date, message, parent links). |
+| `branch/` | Branch metadata. |
+| `tag/` | Tag metadata. |
+| `filetree/` | File tree snapshots per commit (which files existed and their blob SHAs). |
+| `audit/` | Code architecture and graph audit reports per commit. |
+
+## Source repository
+
+[asimov-modules/asimov-linkup-module](https://github.com/asimov-modules/asimov-linkup-module)
+
+---
+*Parsed on 2026-09-28 by [repolex](https://repolex.ai)*

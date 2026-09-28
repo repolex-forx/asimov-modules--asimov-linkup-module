@@ -1,0 +1,11 @@
+{
+  "org": "asimov-modules",
+  "repo": "asimov-linkup-module",
+  "versions": [
+    {
+      "commit": "a65f83bf57474ca3819463f796ebf8c6041ea8b0",
+      "tag": "0.0.1",
+      "parsed_at": "2026-09-28T07:20:41.225784+00:00"
+    }
+  ]
+}
